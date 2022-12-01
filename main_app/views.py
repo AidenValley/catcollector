@@ -18,7 +18,6 @@ cats = [
     Cat('Garfield', 'tabbycat', 'likes lasagna', 43),
 ]
 
-tanner = Cat('tanner', 'tabbycat', 'cool', 23)
 
 # Create your views here.
 def index(request):
@@ -32,3 +31,6 @@ def contact(request):
 
 def blog(request):
     return render(request, 'blog.html')
+
+def cats_index(request):
+    return render(request, 'cats/index.html', { 'cats': cats})
