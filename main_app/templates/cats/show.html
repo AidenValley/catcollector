@@ -6,4 +6,8 @@
 <p> Description: {{ cat.description }}</p>
 <p> Age: {{ cat.age }} </p>
 
+<!-- Add links for update and delete -->
+<a href="{% url 'cats_update' cat.id %}" class="btn btn-warning"> Update Details</a>
+<a href="{% url 'cats_delete' cat.id %}" class="btn btn-danger"> Delete this Cat</a>
+
 {% endblock %}

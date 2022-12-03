@@ -1,6 +1,32 @@
 from django.shortcuts import render
 from django.http import HttpResponse
-from .models import Cat
+from .models import Cat, Dog
+
+from django.views.generic.edit import CreateView, UpdateView, DeleteView
+from django.http import HttpResponseRedirect
+
+class DogCreate(CreateView):
+  model = Dog
+  fields = '__all__'
+  success_url = '/dogs'
+
+class CatCreate(CreateView):
+  model = Cat
+  fields = '__all__'
+  success_url = '/cats'
+
+class CatUpdate(UpdateView):
+  model = Cat
+  fields = ['name', 'breed', 'description', 'age']
+
+  def form_valid(self, form):
+    self.object = form.save(commit=False)
+    self.object.save()
+    return HttpResponseRedirect('/cats/' + str(self.object.pk))
+
+class CatDelete(DeleteView):
+  model = Cat
+  success_url = '/cats'
 
 # temp add Cats class
 # class Cat:
