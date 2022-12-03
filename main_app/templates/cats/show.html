@@ -1,7 +1,9 @@
+{% extends 'base.html' %}
+{% block content %}
+
 <h2>Name: {{ cat.name }}</h2>
 <p>Breed: {{ cat.breed }}</p>
 <p> Description: {{ cat.description }}</p>
 <p> Age: {{ cat.age }} </p>
-<button class="btn btn-primary">
-    <a href="/cats/" > View All Cats</a>
-</button>
+
+{% endblock %}
